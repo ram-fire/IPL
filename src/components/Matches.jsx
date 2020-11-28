@@ -1,25 +1,11 @@
 import React,{useState,useEffect} from "react";
 import NavbarIPL from "./NavbarIPL";
 import TableOfMatches from "./TableOfMatches";
+import axios from "axios";
 function Matches(){
-    const [listOfRecords,setlistOfRecords]=useState([{
-        season:"2019",
-        city:"hyderabad",
-        date:"2019-05-03",
-        team1:"Royal Challengers Bangalore",
-        team2:"Rising Pune Supergiant",
-        toss_winner:"Royal Challengers Bangalore",
-        toss_decision:"field",
-        result:"normal",
-        dl_applied:"0",
-        winner:"Rising Pune Supergiant",
-        win_by_runs:"35",
-        win_by_wickets:"0",
-        player_of_match:"M.S. Dhoni",
-        venue:"Rajiv Gandhi International Stadium, Uppal"
-    }]);
+    const [listOfRecords,setlistOfRecords]=useState([]);
     const [filter,Setfilter]=useState({
-        season:"",
+        Season:"",
         city:"",
         date:"",
         team1:"",
@@ -35,8 +21,15 @@ function Matches(){
         venue:""
     });
     useEffect(()=>{
-        //setlistOfRecords(results.data);
-      });
+    axios.post('http://localhost:5000/matches',filter)
+    .then(function (response) {
+      //console.log(response.data);
+      setlistOfRecords(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })       
+    });
     function handleChange(event){
         const {name,value}=event.target; 
         Setfilter(previousValue=>{
@@ -49,22 +42,6 @@ function Matches(){
     function onSubmitFilter(event){
         event.preventDefault();
         console.log(filter);
-        Setfilter({
-            season:"",
-        city:"",
-        date:"",
-        team1:"",
-        team2:"",
-        toss_winner:"",
-        toss_decision:"",
-        result:"",
-        dl_applied:"",
-        winner:"",
-        win_by_runs:"",
-        win_by_wickets:"",
-        player_of_match:"",
-        venue:""
-        })
     }
     return(
             <>
@@ -72,7 +49,7 @@ function Matches(){
             <form onSubmit={onSubmitFilter} className="playerForm">
             <div className="dd">      
                 <p>season</p>
-                    <select onChange={handleChange}  name="season">
+                    <select onChange={handleChange}  name="Season" value={filter.Season}>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
@@ -98,7 +75,7 @@ function Matches(){
             </div>
             <div className="inputarea">
                     <p>Date</p>
-                    <input onChange={handleChange}  type="date" id="date" name="date"/>
+                    <input onChange={handleChange}  type="date" id="date" name="date" value={filter.date}/>
             </div>
             <div className="inputarea">
                 <p>team1:</p>
@@ -129,21 +106,21 @@ function Matches(){
             </div>
             <div className="dd">      
                 <p>toss decision</p>
-                    <select onChange={handleChange}  name="toss_decision">
+                    <select onChange={handleChange}  name="toss_decision" value={filter.toss_decision}>
                         <option value="field">field</option>
                         <option value="bat">bat</option>
                     </select><br/>
             </div>    
             <div className="dd">      
                 <p>Result</p>
-                    <select onChange={handleChange}  name="result">
+                    <select onChange={handleChange}  name="result" value={filter.result}>
                         <option value="normal">Noramal</option>
                         <option value="tie">Tie</option>
                     </select><br/>
             </div>
             <div className="dd">      
                 <p>dl applied</p>
-                    <select onChange={handleChange}  name="dl_applied">
+                    <select onChange={handleChange}  name="dl_applied" value={filter.dl_applied}>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select><br/>

@@ -4,7 +4,7 @@ function TableOfMatches(props)
 {
     return(
         <tr>
-        <td>{props.records.season}</td>
+        <td>{props.records.Season}</td>
         <td>{props.records.date}</td>
         <td>{props.records.team1}</td>
         <td>{props.records.team2}</td>
