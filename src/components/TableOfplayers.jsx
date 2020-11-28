@@ -4,11 +4,11 @@ function TableOfPlayers(props)
 {
     return(
         <tr>
-        <td>{props.records.name}</td>
-        <td>{props.records.batting_hand}</td>
-        <td>{props.records.bowling_skill}</td>
-        <td>{props.records.dob}</td>
-        <td>{props.records.country}</td>
+        <td>{props.records.Player_Name}</td>
+        <td>{props.records.Batting_Hand}</td>
+        <td>{props.records.Bowling_Skill}</td>
+        <td>{props.records.DOB}</td>
+        <td>{props.records.Country}</td>
         </tr>
     );
 }

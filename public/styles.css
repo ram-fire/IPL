@@ -1,118 +1,268 @@
+/* Open Sans Font*/
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap");
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .cards{
-    width: 100%;
-    height:auto;
-  }
-  
-  .card{
-    margin:6%;
-    transition: all 0.4s cubic-bezier(0.175,0.885,0,1);
-    background-color: #fff;
-    width:21.25%;
-    border-radius: 12px;
-    box-shadow: 0px 13px 10px -7px rgba(226, 179, 179, 0.1);
-    float:left;
-  }
-  .card:hover{
-    box-shadow: 0px 13px 10px -7px rgba(0,0,0,0.1);
-    transform: scale(1.05,1.05);
-  }
-  
-  .card__image{
-    width:100%;
-    height: 235px;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-  }
-  
-  .card_info{
-    background-color: #fff;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    padding: 16px 24px 24px 24px;
-  }
-  .card__category{
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-weight: 500;
-    color: #868686;
-    background-color: #fff;
-  }
-  .card__title
-  {
-    margin-top: 5px;
-    margin-bottom: 10px;
-    background-color: #fff;
-    text-transform: capitalize;
-  }
-  .playerForm{
-      position: absolute;
-      top:70px;
-      left:5%;
-      width:90%;
-      border : 1px solid #000;
-      border-radius: 2%;
-      background: #e1ebe7;
-      padding: 20px;
-      box-shadow: 0 3px 10px rgb(138, 137, 137);
-  }
-  .playerForm .playerName{
-      float :left;
-  }
-  .playerForm .battingHand{
-      margin-left:10px;
-      width:150px;
-      float :left;
-  }
-  .playerForm .bowlingSkill{
-      margin-left:10px;
-      width:200px;
-      float: left;
-  }
-  .playerForm .dob{
-    margin-left:10px;
-    width:170px;
-    float: left;
-  }
-  .playerForm .country{
-    margin-left:10px;
-    width:100px;
-    float: left;
-  }
-  .playerForm button{
-      position: absolute;
-      right:0px;
-      left:95%;
-      top:70%;
-  }
-  .playerstable{
-      position: absolute;
-      top:300px;
-      left:5%;
-      width:90%;
-  }
-  .dd{
-    display: inline-block;
-    margin:5px 5px;     
-  }
-  .inputarea{
-    display: inline-block;
-    margin:5px 5px;
-  }
-  .matchestable{
-    position: absolute;
-    top:450px;
-    left:5%;
-    width:90%;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
-.averageSRtable{
-    position: absolute;
-    top:300px;
-    left:5%;
-    width:90%;
+
+body {
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
 }
+
+/* Navbar */
+
+.navbar {
+	background: #1a347e;
+	display: flex;
+	flex-grow: 0;
+	height: 12vh;
+	/* justify-content: flex-start; */
+}
+
+.logo-container {
+	width: 30%;
+	padding: 20px;
+}
+
+.nav-links-container {
+	flex-grow: 1;
+	padding: 25px;
+	display: flex;
+	align-items: center;
+}
+
+.nav-link {
+	width: 15%;
+	text-align: center;
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 120%;
+	letter-spacing: 1px;
+}
+
+/* ------------------------Filter Forms-------------------------- */
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.filter-form-container {
+	height: 88vh;
+	display: flex;
+	flex-grow: 1;
+}
+
+.filter-form {
+	width: 25%;
+	background: #071d42;
+	padding: 70px 25px;
+	color: #ffffff;
+	height: 100%;
+}
+
+.filter-form .input-field {
+	margin: 30px;
+	margin-bottom: 50px;
+}
+
+.filter-form .input-field label {
+	display: block;
+	margin: 10px;
+	font-weight: 300;
+	font-size: 150%;
+	color: #fbc531;
+}
+
+.filter-form .input-field input {
+	background: none;
+	border: none;
+	border-bottom: 1px solid #ffffff;
+	color: #ffff;
+	margin: 10px;
+	font-size: 120%;
+	font-weight: 400;
+	padding: 5px;
+}
+
+.filter-form .input-field input:focus {
+	outline: none;
+}
+
+/* .filter-form .input-field input::placeholder {
+	color: #ffffff;
+} */
+
+.filter-form .input-field select {
+	background: none;
+	border: none;
+	border-bottom: 1px solid #ffffff;
+	color: #ffffff;
+	margin: 10px;
+	font-size: 120%;
+	font-weight: 400;
+	padding: 5px;
+}
+
+.filter-form .input-field select:focus {
+	outline: none;
+}
+
+.filter-form .input-field select option {
+	background: transparent;
+	color: black;
+}
+
+.filter-data-table {
+	overflow: auto;
+	width: 75%;
+	display: flex;
+	justify-content: center;
+	padding: 60px;
+	background: #030e29;
+}
+
+.data-table {
+	width: 70%;
+	border: none;
+	color: #fff;
+	text-align: center;
+	border-collapse: collapse;
+}
+
+.data-table thead {
+	color: #fbc531;
+	font-size: 120%;
+}
+
+.data-table thead tr th {
+	font-weight: 300;
+	padding: 30px;
+}
+
+.data-table tbody tr td {
+	padding: 30px;
+}
+
+.data-table tbody tr:nth-child(even) {
+	/* display: block; */
+	background-color: #030718;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+
+/* .cards {
+	width: 100%;
+	height: auto;
+}
+
+.card {
+	margin: 6%;
+	transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+	background-color: #fff;
+	width: 21.25%;
+	border-radius: 12px;
+	box-shadow: 0px 13px 10px -7px rgba(226, 179, 179, 0.1);
+	float: left;
+}
+.card:hover {
+	box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+	transform: scale(1.05, 1.05);
+}
+
+.card__image {
+	width: 100%;
+	height: 235px;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+}
+
+.card_info {
+	background-color: #fff;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	padding: 16px 24px 24px 24px;
+}
+.card__category {
+	text-transform: uppercase;
+	font-size: 13px;
+	letter-spacing: 2px;
+	font-weight: 500;
+	color: #868686;
+	background-color: #fff;
+}
+.card__title {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	background-color: #fff;
+	text-transform: capitalize;
+}
+.playerForm {
+	position: absolute;
+	top: 70px;
+	left: 5%;
+	width: 90%;
+	border: 1px solid #000;
+	border-radius: 2%;
+	background: #e1ebe7;
+	padding: 20px;
+	box-shadow: 0 3px 10px rgb(138, 137, 137);
+}
+.playerForm .playerName {
+	float: left;
+}
+.playerForm .battingHand {
+	margin-left: 10px;
+	width: 150px;
+	float: left;
+}
+.playerForm .bowlingSkill {
+	margin-left: 10px;
+	width: 200px;
+	float: left;
+}
+.playerForm .dob {
+	margin-left: 10px;
+	width: 170px;
+	float: left;
+}
+.playerForm .country {
+	margin-left: 10px;
+	width: 100px;
+	float: left;
+}
+.playerForm button {
+	position: absolute;
+	right: 0px;
+	left: 95%;
+	top: 70%;
+}
+.playerstable {
+	position: absolute;
+	top: 300px;
+	left: 5%;
+	width: 90%;
+}
+.dd {
+	display: inline-block;
+	margin: 5px 5px;
+}
+.inputarea {
+	display: inline-block;
+	margin: 5px 5px;
+}
+.matchestable {
+	position: absolute;
+	top: 450px;
+	left: 5%;
+	width: 90%;
+}
+.averageSRtable {
+	position: absolute;
+	top: 300px;
+	left: 5%;
+	width: 90%;
+} */
