@@ -55,13 +55,15 @@ function AverageSR(){
 				strikerate:val
 			}
 		})
-	}
+    }
+    
     useEffect(async () => {
         SetloadDone(0);
-        const response= await axios.post('http://localhost:5000/stats',filter);
+        const response= await axios.post('https://young-lake-96159.herokuapp.com/stats',filter);
         SetloadDone(1);
         setlistOfRecords(response.data);
-        },[filter]);
+    },[filter]);
+
     function handleChange(event){
         const {name,value}=event.target; 
         Setfilter(previousValue=>{
@@ -71,10 +73,7 @@ function AverageSR(){
             }
         });
     }
-    function onSubmitFilter(event){
-        event.preventDefault();
-        console.log(filter);
-    }
+    
     return(
         <div className='container'>
 			<NavbarIPL />
@@ -138,15 +137,15 @@ function AverageSR(){
 						/>
                     </div>
                 </div>
-                {!loadDone && 
-                <div class='loader-container'>
-					<div className='loader'>
-						<Loader />
-					</div>
-				</div>
-                }
-                {loadDone &&
                 <div className='filter-data-table'>
+                    {!loadDone && 
+                        <div class='loader-container'>
+					        <div className='loader'> 
+                               <Loader />
+					        </div>
+				        </div>
+                    }
+                    {loadDone &&
                     <table className='data-table'>
                         <thead>
                             <tr>
@@ -165,8 +164,8 @@ function AverageSR(){
                             ))}
                         </tbody>
                     </table>
+                    }
                 </div>
-                }
             </div>
 		</div>
     );

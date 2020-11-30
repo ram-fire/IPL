@@ -5,7 +5,7 @@ function NavbarIPL() {
 		<>
 			<div className='navbar'>
 				<div className='logo-container'>
-					<img src='' alt='IPL' id='ipl-main-logo' />
+					<img src='/teams-logo/ipl-logo.svg' alt='IPL' id='ipl-main-logo' />
 				</div>
 				<div className='nav-links-container'>
 					<div className='nav-link teams'>

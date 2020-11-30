@@ -23,12 +23,14 @@ function Matches() {
         venue: "",
         umpire: "",
     });
+
     useEffect(async ()=>{
         SetloadDone(0);
-        const response = await axios.post('http://localhost:5000/matches',filter);
+        const response = await axios.post('https://young-lake-96159.herokuapp.com/matches',filter);
         setlistOfRecords(response.data);
         SetloadDone(1);
-        },[filter]);
+    },[filter]);
+
     async function handleChange(event) {
         const { name, value } = event.target;
         await Setfilter(previousValue => {
@@ -38,10 +40,8 @@ function Matches() {
             }
         });
     }
-    function onSubmitFilter(event) {
-        event.preventDefault();
-        console.log(filter);
-    }
+
+
     return (
         <div className='container'>
             <NavbarIPL />
@@ -201,20 +201,20 @@ function Matches() {
                         />
                     </div>
                 </div>
-                {!loadDone && 
-                <div class='loader-container'>
-					<div className='loader'>
-						<Loader />
-					</div>
-				</div>
-                }
-                {loadDone&&
                 <div className='match-data-cards'>
-					{listOfRecords.map(record=>(
-                     <MatchCard records={record}/>   
-                    ))}
+                    {!loadDone && 
+                        <div class='loader-container'>
+					        <div className='loader'> 
+                               <Loader />
+					        </div>
+				        </div>
+                    }
+                    {loadDone &&
+					    listOfRecords.map(record=>(
+                          <MatchCard records={record}/>   
+                        ))
+                    }
 				</div>
-                }    
             </div>
         </div>
     );

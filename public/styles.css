@@ -55,7 +55,12 @@ body {
 
 .logo-container {
 	width: 30%;
-	padding: 20px;
+	padding: 10px;
+}
+
+.logo-container img {
+	width: 100px;
+	height: 70px;
 }
 
 .nav-links-container {
@@ -75,12 +80,13 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	cursor: pointer;
-	transition: background 0.2s;
+	/* cursor: pointer; */
+	transition: text-decoration 0.2s;
 }
 
 .nav-link:hover {
-	background: #142862;
+	text-decoration: underline;
+	/* background: #142862; */
 }
 /*------------------------Teams container------------------------*/
 
@@ -91,6 +97,7 @@ body {
 	justify-content: space-around;
 	flex-wrap: wrap;
 	padding:50px;
+	flex-grow: 1;
 }
 
 .team-card{
@@ -109,12 +116,12 @@ body {
 }
 .team-card img{
 	border-radius: 50px;
-	width:370px;
-	height:370px;
+	width:250px;
+	height:250px;
 }
 .team-card .team-name{
 	text-align: center;
-	font-size: 150%;
+	font-size: 120%;
 	font-weight: 800
 }
 /* ------------------------Filter Forms-------------------------- */
@@ -127,14 +134,14 @@ body {
 .filter-form {
 	width: 25%;
 	background: #071d42;
-	padding: 70px 25px;
+	padding: 30px 25px;
 	color: #ffffff;
 	height: 100%;
 }
 
 .filter-form .input-field {
 	margin: 30px;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 }
 
 .filter-form .input-field label {
@@ -186,11 +193,12 @@ body {
 }
 
 .filter-form-container .filter-data-table {
+	position: relative;
 	overflow: auto;
 	width: 75%;
 	display: flex;
 	justify-content: center;
-	padding: 60px;
+	padding: 0px;
 	background: #030e29;
 }
 
@@ -281,7 +289,7 @@ body {
 	width: 22%;
 	margin: 15px;
 	margin-top: 25px;
-	padding: 50px 40px 20px 40px;
+	padding: 50px 20px 20px 20px;
 	display: flex;
 	flex-direction: column;
 	/* border: 1px solid #c8d6e5; */
@@ -325,7 +333,7 @@ body {
 }
 
 .match-data-cards .match-card .middle-section {
-	margin: 20px auto;
+	margin: 10px auto;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -366,16 +374,16 @@ body {
 /*Stats Form*/
 
 .stats-form {
-	padding: 30px 20px;
+	padding: 5px 20px;
 }
 
 .stats-form .input-field {
-	margin: 20px;
-	margin-bottom: 20px;
+	margin: 8px;
+	margin-bottom: 8px;
 	/* width: 50%; */
 }
 
 .stats-form .input-field label {
-	font-size: 120%;
-	font-weight: 300;
+	font-size: 78%;
+	font-weight: 200;
 }

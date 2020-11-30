@@ -12,11 +12,7 @@ function App() {
 				<Route exact path='/' component={Home} />
 				<Route exact path='/players' component={Players} />
 				<Route exact path='/matches' component={Matches} />
-				<Route
-					exact
-					path='/stats'
-					component={AverageSR}
-				/>
+				<Route exactpath='/stats' component={AverageSR} />
 			</Switch>
 		</div>
 	);

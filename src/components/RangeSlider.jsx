@@ -17,7 +17,7 @@ function rangeSlider(props) {
 		height: 10,
 		marginTop: 35,
 		borderRadius: 5,
-		backgroundColor: "#cfedfc", // #8B9CB6 jo select nahi hua
+		backgroundColor: "#cfedfc", 
 	};
 
 	function Handle({ handle: { id, value, percent }, getHandleProps }) {
@@ -35,7 +35,7 @@ function rangeSlider(props) {
 					textAlign: "center",
 					cursor: "pointer",
 					borderRadius: "50%",
-					backgroundColor: "#2C4870", //  gola
+					backgroundColor: "#2C4870", 
 					color: "#333",
 				}}
 				{...getHandleProps(id)}
@@ -62,14 +62,14 @@ function rangeSlider(props) {
 					height: 10,
 					zIndex: 1,
 					marginTop: 35,
-					backgroundColor: "#546C91", // jo select ho gya
+					backgroundColor: "#546C91", 
 					borderRadius: 5,
 					cursor: "pointer",
 					left: `${source.percent}%`,
 					width: `${target.percent - source.percent}%`,
 				}}
 				{
-					...getTrackProps() /* this will set up events if you want it to be clickeable (optional) */
+					...getTrackProps() 
 				}
 			/>
 		);
@@ -109,10 +109,10 @@ function rangeSlider(props) {
 	return (
 		<Slider
 			rootStyle={sliderStyle}
-			domain={props.domain} //{[0, 1000]}
-			step={props.step} //{1}
+			domain={props.domain} 
+			step={props.step} 
 			mode={2}
-			values={props.values} //{[10, 20] /* three values = three handles */}
+			values={props.values} 
 		    onChange={props.handleSlide}
 		>
 			<Rail>

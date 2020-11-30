@@ -4,6 +4,7 @@ import TableOfplayers from "./TableOfplayers";
 import { ReactComponent as Loader } from "./icons/loader.svg";
 import axios from "axios";
 function Players() {
+
 	const [listOfRecords, setlistOfRecords] = useState([]);
 	const [loadDone,SetloadDone]=useState(0);
 	const [filter, Setfilter] = useState({
@@ -13,12 +14,14 @@ function Players() {
 		Country: "",
 		DOB: "",
 	});
+
 	useEffect(async () => {
-	SetloadDone(0);	
-	const response= await axios.post('http://localhost:5000/players',filter);
-	setlistOfRecords(response.data);
-	SetloadDone(1);
+		SetloadDone(0);	
+		const response= await axios.post('https://young-lake-96159.herokuapp.com/players',filter);
+		setlistOfRecords(response.data);
+		SetloadDone(1);
 	},[filter]);
+
 	function handleChange(event) {
 		const { name, value } = event.target;
 		Setfilter((previousValue) => {
@@ -28,9 +31,7 @@ function Players() {
 			};
 		});
 	}
-	function onSubmitFilter(event) {
-		event.preventDefault();
-	}
+
 	return (
 		<div className='container'>
 			<NavbarIPL />
@@ -112,15 +113,15 @@ function Players() {
 						</button>
 					</div> */}
 				</div>
-				{!loadDone && 
-                <div class='loader-container'>
-					<div className='loader'>
-						<Loader />
-					</div>
-				</div>
-                }
-				{loadDone&&
 				<div className='filter-data-table'>
+				    {!loadDone && 
+                        <div class='loader-container'>
+					        <div className='loader'> 
+                               <Loader />
+					        </div>
+				        </div>
+                    }
+					{loadDone &&
 					<table className='data-table'>
 						<thead>
 							<tr>
@@ -138,8 +139,8 @@ function Players() {
 							))}
 						</tbody>
 					</table>
+					}
 				</div>
-				}
 			</div>
 		</div>
 	);

@@ -1,6 +1,4 @@
 import React from "react";
-import { ReactComponent as MatchIcon } from "./icons/match.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function TeamCard(props)
 {
     return (
