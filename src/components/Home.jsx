@@ -1,13 +1,13 @@
 import React from "react";
 import NavbarIPL from "./NavbarIPL";
-import PageDefault from "./PageDefault";
+import Teams from "./Teams";
 
 function Players(){
     return(
-        <>
-        <NavbarIPL/>
-        <PageDefault/>
-        </>
+        <div className="container">
+           <NavbarIPL/>
+           <Teams />
+        </div>
     );
 }
 

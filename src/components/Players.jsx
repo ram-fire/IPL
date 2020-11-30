@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import NavbarIPL from "./NavbarIPL";
 import TableOfplayers from "./TableOfplayers";
+import { ReactComponent as Loader } from "./icons/loader.svg";
 import axios from "axios";
 function Players() {
 	const [listOfRecords, setlistOfRecords] = useState([]);
+	const [loadDone,SetloadDone]=useState(0);
 	const [filter, Setfilter] = useState({
 		Player_Name: "",
 		Batting_Hand: "",
@@ -11,16 +13,12 @@ function Players() {
 		Country: "",
 		DOB: "",
 	});
-	useEffect(() => {
-	axios.post('http://localhost:5000/players',filter)
-    .then(function (response) {
-      //console.log(response.data);
-      setlistOfRecords(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-	});
+	useEffect(async () => {
+	SetloadDone(0);	
+	const response= await axios.post('http://localhost:5000/players',filter);
+	setlistOfRecords(response.data);
+	SetloadDone(1);
+	},[filter]);
 	function handleChange(event) {
 		const { name, value } = event.target;
 		Setfilter((previousValue) => {
@@ -53,14 +51,15 @@ function Players() {
 					<div className='input-field'>
 						<label htmlFor='Batting_Hand'>Batting Hand: </label>
 						<select name='Batting_Hand' id='Batting_Hand' value={filter.Batting_Hand} onChange={handleChange}>
+						    <option value='both'>Both</option>
 							<option value='Left_Hand'>Left Hand</option>
 							<option value='Right_Hand'>Right Hand</option>
-							<option value='both'>Both</option>
 						</select>
 					</div>
 					<div className='input-field'>
 						<label htmlFor='Bowling_Skill'>Bowling Skill: </label>
 						<select name='Bowling_Skill' onChange={handleChange} value={filter.Bowling_Skill} id='Bowling_Skill'>
+						<option value='all'>All</option>
 							<option value='Right-arm medium'>
 								Right-arm medium
 							</option>
@@ -83,7 +82,6 @@ function Players() {
 							<option value='Left-arm medium'>
 								Left-arm medium
 							</option>
-							<option value='all'>All</option>
 						</select>
 					</div>
 					{/* <div className='input-field'>
@@ -114,6 +112,14 @@ function Players() {
 						</button>
 					</div> */}
 				</div>
+				{!loadDone && 
+                <div class='loader-container'>
+					<div className='loader'>
+						<Loader />
+					</div>
+				</div>
+                }
+				{loadDone&&
 				<div className='filter-data-table'>
 					<table className='data-table'>
 						<thead>
@@ -133,6 +139,7 @@ function Players() {
 						</tbody>
 					</table>
 				</div>
+				}
 			</div>
 		</div>
 	);

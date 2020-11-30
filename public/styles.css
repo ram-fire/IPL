@@ -1,6 +1,8 @@
 /* Open Sans Font*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,400&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Nerko+One&family=Permanent+Marker&display=swap");
+
 * {
 	padding: 0;
 	margin: 0;
@@ -10,6 +12,35 @@
 body {
 	font-family: "Open Sans", sans-serif;
 	font-size: 16px;
+}
+
+
+
+/*-----------------------------------Loader------------------------*/
+
+.loader-container {
+	position: absolute;
+	/* display: none; */
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(#1a357e93, #6a89cc81);
+}
+
+.loader-container .loader {
+	/* margin: 0 auto; */
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+/*---------------------main container-------------*/
+.container {
+	display: flex;
+	flex-direction: column;
 }
 
 /* Navbar */
@@ -29,7 +60,6 @@ body {
 
 .nav-links-container {
 	flex-grow: 1;
-	padding: 25px;
 	display: flex;
 	align-items: center;
 }
@@ -41,15 +71,53 @@ body {
 	font-weight: 600;
 	font-size: 120%;
 	letter-spacing: 1px;
-}
-
-/* ------------------------Filter Forms-------------------------- */
-
-.container {
+	height: 100%;
 	display: flex;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: background 0.2s;
 }
 
+.nav-link:hover {
+	background: #142862;
+}
+/*------------------------Teams container------------------------*/
+
+
+.team-card-container{
+	display: flex;
+	background: #6a89cc;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	padding:50px;
+}
+
+.team-card{
+	display: flex;
+	margin: 15px;
+	margin-top: 25px;
+	flex-direction: column;
+	background: #071d42;
+	color:#fbc531;
+	border-radius: 50px;
+	box-shadow: 10px 10px 5px #071d42;
+	transition: transform 0.5s;
+}
+.team-card:hover {
+	transform: scale(1.075);
+}
+.team-card img{
+	border-radius: 50px;
+	width:370px;
+	height:370px;
+}
+.team-card .team-name{
+	text-align: center;
+	font-size: 150%;
+	font-weight: 800
+}
+/* ------------------------Filter Forms-------------------------- */
 .filter-form-container {
 	height: 88vh;
 	display: flex;
@@ -86,6 +154,7 @@ body {
 	font-size: 120%;
 	font-weight: 400;
 	padding: 5px;
+	width: 95%;
 }
 
 .filter-form .input-field input:focus {
@@ -116,7 +185,7 @@ body {
 	color: black;
 }
 
-.filter-data-table {
+.filter-form-container .filter-data-table {
 	overflow: auto;
 	width: 75%;
 	display: flex;
@@ -125,7 +194,7 @@ body {
 	background: #030e29;
 }
 
-.data-table {
+.filter-form-container .data-table {
 	width: 70%;
 	border: none;
 	color: #fff;
@@ -133,136 +202,180 @@ body {
 	border-collapse: collapse;
 }
 
-.data-table thead {
+.filter-form-container .data-table thead {
 	color: #fbc531;
 	font-size: 120%;
 }
 
-.data-table thead tr th {
+.filter-form-container .data-table thead tr th {
 	font-weight: 300;
 	padding: 30px;
 }
 
-.data-table tbody tr td {
+.filter-form-container .data-table tbody tr td {
 	padding: 30px;
 }
 
-.data-table tbody tr:nth-child(even) {
+.filter-form-container .data-table tbody tr:nth-child(even) {
 	/* display: block; */
 	background-color: #030718;
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #fff;
 }
 
-/* .cards {
-	width: 100%;
+/* Matches Form */
+.matches-form-container {
+	display: flex;
 	height: auto;
+	min-height: 88vh !important;
+	flex-direction: column;
 }
-
-.card {
-	margin: 6%;
-	transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
-	background-color: #fff;
-	width: 21.25%;
-	border-radius: 12px;
-	box-shadow: 0px 13px 10px -7px rgba(226, 179, 179, 0.1);
-	float: left;
-}
-.card:hover {
-	box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
-	transform: scale(1.05, 1.05);
-}
-
-.card__image {
+.matches-form-container .matches-form {
+	padding: 25px 10px;
+	display: flex;
+	flex-wrap: wrap;
 	width: 100%;
-	height: 235px;
-	border-top-left-radius: 12px;
-	border-top-right-radius: 12px;
+	justify-content: center;
 }
 
-.card_info {
-	background-color: #fff;
-	border-top-left-radius: 12px;
-	border-top-right-radius: 12px;
-	padding: 16px 24px 24px 24px;
+.matches-form .input-field {
+	margin: 0px;
+	width: 18%;
 }
-.card__category {
-	text-transform: uppercase;
-	font-size: 13px;
-	letter-spacing: 2px;
-	font-weight: 500;
-	color: #868686;
-	background-color: #fff;
+
+.matches-form .input-field label {
+	font-size: 110%;
 }
-.card__title {
-	margin-top: 5px;
-	margin-bottom: 10px;
-	background-color: #fff;
-	text-transform: capitalize;
+
+.matches-form .input-field input {
+	font-size: 100%;
+	font-weight: 200;
+	width: 75%;
 }
-.playerForm {
-	position: absolute;
-	top: 70px;
-	left: 5%;
-	width: 90%;
-	border: 1px solid #000;
-	border-radius: 2%;
-	background: #e1ebe7;
-	padding: 20px;
-	box-shadow: 0 3px 10px rgb(138, 137, 137);
+
+.matches-form .input-field select {
+	font-size: 100%;
+	font-weight: 200;
+	width: 75%;
 }
-.playerForm .playerName {
-	float: left;
+
+.matches-form-container .match-data-cards {
+	position: relative;
+	overflow: auto;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	/* padding: 35px; */
+	/* background: #030e29; */
+	background: #6a89cc;
+	flex-grow: 1;
+	/* font-family: "Permanent Marker", cursive; */
+	font-size: 100%;
 }
-.playerForm .battingHand {
-	margin-left: 10px;
-	width: 150px;
-	float: left;
+
+.match-data-cards .match-card {
+	/* background: linear-gradient(#1a347e, #071d42); */
+	/* background: #1e272e; */
+	background: #030e29;
+	width: 22%;
+	margin: 15px;
+	margin-top: 25px;
+	padding: 50px 40px 20px 40px;
+	display: flex;
+	flex-direction: column;
+	/* border: 1px solid #c8d6e5; */
+	border-radius: 50px;
+	box-shadow: 10px 10px 5px #071d42;
+	color: #82ccdd;
+	letter-spacing: 1px;
+	transition: transform 0.5s;
 }
-.playerForm .bowlingSkill {
-	margin-left: 10px;
-	width: 200px;
-	float: left;
+
+.match-data-cards .match-card:hover {
+	transform: scale(1.075);
 }
-.playerForm .dob {
-	margin-left: 10px;
-	width: 170px;
-	float: left;
+
+.match-data-cards .match-card .top-section {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
-.playerForm .country {
-	margin-left: 10px;
+
+.match-card .top-section .top-left,
+.match-card .top-section .top-right {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 100%;
+	font-weight: 800;
+}
+
+.match-card .top-section .top-left div,
+.match-card .top-section .top-right div {
+	margin: 5px 0;
+}
+
+.match-card .top-section .match-icon-container {
 	width: 100px;
-	float: left;
+	height: 100px;
+	margin: 5px;
+	color: #c8d6e5;
 }
-.playerForm button {
-	position: absolute;
-	right: 0px;
-	left: 95%;
-	top: 70%;
+
+.match-data-cards .match-card .middle-section {
+	margin: 20px auto;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 90%;
 }
-.playerstable {
-	position: absolute;
-	top: 300px;
-	left: 5%;
-	width: 90%;
+
+.match-data-cards .match-card .middle-section div {
+	width: 95%;
+	margin: 10px;
+	text-align: center;
 }
-.dd {
-	display: inline-block;
-	margin: 5px 5px;
+
+.match-card .middle-section .match-teams {
+	font-size: 200%;
+	font-weight: 800;
 }
-.inputarea {
-	display: inline-block;
-	margin: 5px 5px;
+
+.match-data-cards .match-card .bottom-section {
+	font-size: 80%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
-.matchestable {
-	position: absolute;
-	top: 450px;
-	left: 5%;
-	width: 90%;
+
+.match-data-cards .match-card .bottom-section div {
+	width: 75%;
+	margin: 7px;
 }
-.averageSRtable {
-	position: absolute;
-	top: 300px;
-	left: 5%;
-	width: 90%;
-} */
+
+.match-data-cards .match-card .bottom-section span {
+	font-weight: bold;
+}
+
+/*Stats Form*/
+
+.stats-form {
+	padding: 30px 20px;
+}
+
+.stats-form .input-field {
+	margin: 20px;
+	margin-bottom: 20px;
+	/* width: 50%; */
+}
+
+.stats-form .input-field label {
+	font-size: 120%;
+	font-weight: 300;
+}

@@ -14,7 +14,7 @@ function App() {
 				<Route exact path='/matches' component={Matches} />
 				<Route
 					exact
-					path='/average-strike-rates'
+					path='/stats'
 					component={AverageSR}
 				/>
 			</Switch>
